@@ -11,7 +11,7 @@ return [
     /*
      * Значения по умолчанию для мета-тегов title, keywords и description
      */
-    'defaultTitle' => 'Интернет-магазин GENAMED-SHOP ',
+    'defaultTitle' => 'Интернет-магазин YII2SHOP ',
     'defaultKeywords' => '',
     'defaultDescription' => '',
     /*
