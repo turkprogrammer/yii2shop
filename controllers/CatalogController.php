@@ -119,6 +119,25 @@ class CatalogController extends AppController {
             compact('product', 'brand', 'similar')
         );
     }
+    
+    /**
+     * Результаты поиска по каталогу товаров
+     */
+    public function actionSearch($query = '', $page = 1) {
+
+        $page = (int)$page;
+
+        // получаем результаты поиска с постраничной навигацией
+        list($products, $pages) = (new Product())->getSearchResult($query, $page);
+
+        // устанавливаем мета-теги для страницы
+        $this->setMetaTags('Поиск по каталогу');
+
+        return $this->render(
+            'search',
+            compact('products', 'pages')
+        );
+    }
  
 
 }
