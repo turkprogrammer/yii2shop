@@ -131,7 +131,7 @@ class CatalogController extends AppController {
         list($products, $pages) = (new Product())->getSearchResult($query, $page);
 
         // устанавливаем мета-теги для страницы
-        $this->setMetaTags('Поиск по каталогу');
+        $this->setMeta('Поиск по каталогу');
 
         return $this->render(
             'search',

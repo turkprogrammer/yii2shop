@@ -18,7 +18,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'kyw74m5jZ3D1RrPA6eed2dIMmWMidnVE',
-             //изавляемся от web
+            //изавляемся от web
             'baseURl' => '',
         ],
         'cache' => [
@@ -48,19 +48,19 @@ $config = [
             ],
         ],
         'db' => $db,
-      'urlManager' => [
+        'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
                 //'category/<id:\d+>/page/<page:\d+>' => 'category/view',//конкретное правило в приоретете над общим!             
-            
-          'catalog/category/<id:\d+>/page/<page:\d+>' => 'catalog/category',
+
+                'catalog/category/<id:\d+>/page/<page:\d+>' => 'catalog/category',
                 'catalog/category/<id:\d+>' => 'catalog/category',
                 'catalog/brand/<id:\d+>/page/<page:\d+>' => 'catalog/brand',
-                
-                'catalog/brand/<id:\d+>' => 'catalog/brand',    
-                
-                '<action:(index|about|contact|login|signup)>' => 'site/<action>',                // убираем контроллер Site из строки регуляркой <a>
+                'catalog/brand/<id:\d+>' => 'catalog/brand',
+                'catalog/search/page/<page:\d+>' => 'catalog/search',
+                'catalog/search' => 'catalog/search',
+                '<action:(index|about|contact|login|signup)>' => 'site/<action>', // убираем контроллер Site из строки регуляркой <a>
             ],
         ],
     ],
