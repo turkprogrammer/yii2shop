@@ -16,8 +16,8 @@
                 <!-- Leftsidebar -->
             </div>
 
-            <div class="col-sm-9 padding-right">             
-                <?= $content ?>
+            <div class="col-sm-9 padding-right"> 
+               <?= $content ?>
             </div>
 
 

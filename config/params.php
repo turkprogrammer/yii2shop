@@ -7,7 +7,7 @@ return [
      /*
      * Название магазина
      */
-    'shopName' => 'GENAMED-SHOP',
+    'shopName' => 'Интернет-магазин YII2SHOP',
     /*
      * Значения по умолчанию для мета-тегов title, keywords и description
      */

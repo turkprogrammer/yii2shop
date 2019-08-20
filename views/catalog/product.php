@@ -1,11 +1,11 @@
 <?php
 
-use app\components\ChainWidget;
+
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
+use app\components\BreadCrumbsWidget;
 ?>
-
 
 <h2 class="title text-center"><?= Html::encode($product['name']); ?></h2>
 <div class="product-details"><!--product-details-->
