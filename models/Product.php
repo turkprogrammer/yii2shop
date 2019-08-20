@@ -22,14 +22,15 @@ class Product extends ActiveRecord {
         // связь таблицы БД `product` с таблицей `category`
         return $this->hasOne(Category::class, ['id' => 'cats']);
     }
-     /**
+
+    /**
      * Возвращает информацию о товаре с иденификатором $id
      */
     public function getProduct($id) {
         return self::find()->where(['id' => $id])->asArray()->one();
     }
 
-/**
+    /**
      * Результаты поиска по каталогу товаров
      */
     public function getSearchResult($search, $page) {
@@ -39,12 +40,21 @@ class Product extends ActiveRecord {
         }
 
         // пробуем извлечь данные из кеша
-        $key = 'search-'.md5($search).'-page-'.$page;
+        $key = 'search-' . md5($search) . '-page-' . $page;
         $data = Yii::$app->cache->get($key);
 
-        if ($data === false) {
-            // данных нет в кеше, получаем их заново
-            $query = self::find()->where(['like', 'name', $search]);
+        if ($data === false) { // данных нет в кеше, получаем их заново
+            // разбиваем поисковый запрос на отдельные слова
+            $words = explode(' ', $search);
+            $query = self::find()->where(['like', 'name', $words[0]]);
+            for ($i = 1; $i < count($words); $i++) {
+                // формируем один из двух вариантов запроса — используя andWhere() или orWhere()бпервом случае,
+                //  чтобы товар попал в выборку, нужно, чтобы он содержал в названии все три слова.
+                // Во втором случае — хотя бы одно слово
+
+                $query = $query->andWhere(['like', 'name', $words[$i]]);
+                // $query = $query->orWhere(['like', 'name', $words[$i]]);
+            }
             // постраничная навигация
             $pages = new Pagination([
                 'totalCount' => $query->count(),
@@ -53,10 +63,10 @@ class Product extends ActiveRecord {
                 'pageSizeParam' => false
             ]);
             $products = $query
-                ->offset($pages->offset)
-                ->limit($pages->limit)
-                ->asArray()
-                ->all();
+                    ->offset($pages->offset)
+                    ->limit($pages->limit)
+                    ->asArray()
+                    ->all();
             // сохраняем полученные данные в кеше
             $data = [$products, $pages];
             Yii::$app->cache->set($key, $data);
