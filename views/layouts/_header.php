@@ -145,11 +145,11 @@ ltAppAsset::register($this);
                                     </li> 
                                     <li class="dropdown"><a href="#">Бренды<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="<?=Url::to(['catalog/brands/']) ?>">Все бренды</a></li>
-                                            <li><a href="<?=Url::to(['catalog/brands/view','id'=>1]) ?>">BGI</a></li>
-                                            <li><a href="<?=Url::to(['catalog/brands/view','id'=>3]) ?>">SWIFT BIOSCIENCE</a></li>
-                                            <li><a href="<?=Url::to(['catalog/brands/view','id'=>2]) ?>">THERMO FISHER SCIENTIFIC</a></li>
-                                            <li><a href="<?=Url::to(['catalog/brands/view','id'=>4]) ?>">TWIST BIOSCIENCE</a></li>
+                                            <li><a href="<?= Url::to(['catalog/brands/']) ?>">Все бренды</a></li>
+                                            <li><a href="<?= Url::to(['catalog/brands/view', 'id' => 1]) ?>">BGI</a></li>
+                                            <li><a href="<?= Url::to(['catalog/brands/view', 'id' => 3]) ?>">SWIFT BIOSCIENCE</a></li>
+                                            <li><a href="<?= Url::to(['catalog/brands/view', 'id' => 2]) ?>">THERMO FISHER SCIENTIFIC</a></li>
+                                            <li><a href="<?= Url::to(['catalog/brands/view', 'id' => 4]) ?>">TWIST BIOSCIENCE</a></li>
                                         </ul>
                                     </li> 
 
@@ -158,12 +158,20 @@ ltAppAsset::register($this);
                             </div>
                         </div>
                         <div class="col-sm-3">
-                            <div class="search_box pull-right">
-                                <input type="text" placeholder="Search"/>
-                            </div>
+
+                            <form method="get" action="<?= Url::to(['catalog/search']); ?>" class="pull-right">
+                                <div class="input-group">
+                                    <input type="text" name="query" class="form-control" placeholder="Поиск по каталогу">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                 </div>
             </div><!--/header-bottom-->
         </header><!--/header-->
-     
