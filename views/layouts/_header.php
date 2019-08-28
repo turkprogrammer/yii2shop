@@ -120,7 +120,8 @@ ltAppAsset::register($this);
                 </div>
             </div><!--/header-middle-->
 
-            <div class="header-bottom"><!--header-bottom-->
+            <div class="header-bottom" style="">
+                <!--header-bottom-->
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-9">
@@ -146,10 +147,10 @@ ltAppAsset::register($this);
                                     <li class="dropdown"><a href="#">Бренды<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
                                             <li><a href="<?= Url::to(['catalog/brands/']) ?>">Все бренды</a></li>
-                                            <li><a href="<?= Url::to(['catalog/brands/view', 'id' => 1]) ?>">BGI</a></li>
-                                            <li><a href="<?= Url::to(['catalog/brands/view', 'id' => 3]) ?>">SWIFT BIOSCIENCE</a></li>
-                                            <li><a href="<?= Url::to(['catalog/brands/view', 'id' => 2]) ?>">THERMO FISHER SCIENTIFIC</a></li>
-                                            <li><a href="<?= Url::to(['catalog/brands/view', 'id' => 4]) ?>">TWIST BIOSCIENCE</a></li>
+                                            <li><a href="<?= Url::to(['catalog/brand/', 'id' => 1]) ?>">BGI</a></li>
+                                            <li><a href="<?= Url::to(['catalog/brand/', 'id' => 3]) ?>">SWIFT BIOSCIENCE</a></li>
+                                            <li><a href="<?= Url::to(['catalog/brand/', 'id' => 2]) ?>">THERMO FISHER SCIENTIFIC</a></li>
+                                            <li><a href="<?= Url::to(['catalog/brand/', 'id' => 4]) ?>">TWIST BIOSCIENCE</a></li>
                                         </ul>
                                     </li> 
 
