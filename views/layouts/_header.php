@@ -160,6 +160,13 @@ ltAppAsset::register($this);
                         <div class="col-sm-3">
 
                             <form method="get" action="<?= Url::to(['catalog/search']); ?>" class="pull-right">
+                                    <?=
+                                    Html::hiddenInput(
+                                        Yii::$app->request->csrfParam,
+                                        Yii::$app->request->csrfToken,
+                                        []
+                                    );
+                                    ?>
                                 <div class="input-group">
                                     <input type="text" name="query" class="form-control" placeholder="Поиск по каталогу">
                                     <div class="input-group-btn">

@@ -49,6 +49,6 @@ use yii\widgets\LinkPager;
     <?php endif;?>
    
     <div class="clearfix"></div>
-   <?= LinkPager::widget(['pagination' => $pages]); /* постраничная навигация */ ?>
+   <?//= LinkPager::widget(['pagination' => $pages]); /* постраничная навигация */ ?>
             
 </div><!--features_items-->
