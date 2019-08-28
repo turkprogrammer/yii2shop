@@ -88,7 +88,11 @@ class CatalogController extends AppController {
         if ($data === false) {
             // данных нет в кеше, получаем их заново
             $product = (new Product())->getProduct($id);
-            $brand = (new Brand())->getBrand($product['producer_id']);
+            $brand = (new Brand())->getBrand($product['producer_id']);  
+            $category = (new Category())->getCategory($product['cats']);
+            
+            //self::debug($category); ;
+     
             $data = [$product, $brand];
             // сохраняем полученные данные в кеше
             Yii::$app->cache->set('product-'.$id, $data);
@@ -116,7 +120,7 @@ class CatalogController extends AppController {
         }
         return $this->render(
             'product',
-            compact('product', 'brand', 'similar')
+            compact('product', 'brand', 'similar', 'category')
         );
     }
     

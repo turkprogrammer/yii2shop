@@ -4,8 +4,26 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
-use app\components\BreadCrumbsWidget;
+use yii\widgets\Breadcrumbs;
+
 ?>
+
+<?php 
+//echo \app\controllers\AppController::debug($category);
+echo Breadcrumbs::widget([
+    'itemTemplate' => "<li>{link}</li>\n", // template for all links
+    'links' => [
+        [
+            'label' =>$category['name'],
+            'url' => ['catalog/category', 'id' => $product['cats']],
+            'template' => "<li><b>{link}</b></li>\n", // template for this link only
+        ],
+     
+       $product['name'],
+    ],
+]);
+?>
+
 
 <h2 class="title text-center"><?= Html::encode($product['name']); ?></h2>
 <div class="product-details"><!--product-details-->
@@ -84,9 +102,9 @@ use app\components\BreadCrumbsWidget;
             <div class="col-sm-9">
                 <div class="product-image-wrapper">
                     <div class="single-products">
-                        <div class="productinfo text-center">
+                        <div class="productinfo text-left">
 
-                            <p><?= HtmlPurifier::process($product['about']); ?></p>
+                            <p><?= HtmlPurifier::process($product['name']); ?></p>
 
                         </div>
                     </div>

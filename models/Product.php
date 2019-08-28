@@ -27,7 +27,8 @@ class Product extends ActiveRecord {
      * Возвращает информацию о товаре с иденификатором $id
      */
     public function getProduct($id) {
-        return self::find()->where(['id' => $id])->asArray()->one();
+       return self::find()->where(['id' => $id])->asArray()->one();
+        //return self::find()->with('cats')->where(['id' => $id])->asArray()->one();
     }
 
     /**
@@ -48,9 +49,9 @@ class Product extends ActiveRecord {
             $words = explode(' ', $search);
             $query = self::find()->where(['like', 'name', $words[0]]);
             for ($i = 1; $i < count($words); $i++) {
-                // формируем один из двух вариантов запроса — используя andWhere() или orWhere()бпервом случае,
-                //  чтобы товар попал в выборку, нужно, чтобы он содержал в названии все три слова.
-                // Во втором случае — хотя бы одно слово
+                // формируем один из двух вариантов запроса — используя andWhere() или orWhere()в первом случае,
+                //чтобы товар попал в выборку, нужно, чтобы он содержал в названии все три слова,
+                // во втором случае — хотя бы одно слово
 
                 $query = $query->andWhere(['like', 'name', $words[$i]]);
                 // $query = $query->orWhere(['like', 'name', $words[$i]]);
