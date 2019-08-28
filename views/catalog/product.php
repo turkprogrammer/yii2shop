@@ -10,12 +10,13 @@ use yii\widgets\Breadcrumbs;
 
 <?php 
 //echo \app\controllers\AppController::debug($category);
+
 echo Breadcrumbs::widget([
     'itemTemplate' => "<li>{link}</li>\n", // template for all links
     'links' => [
         [
             'label' =>$category['name'],
-            'url' => ['catalog/category', 'id' => $product['cats']],
+            'url' => ['catalog/category', 'id' => (int)$product['cats']],
             'template' => "<li><b>{link}</b></li>\n", // template for this link only
         ],
      

@@ -58,6 +58,7 @@ $config = [
                 'catalog/category/<id:\d+>' => 'catalog/category',
                 'catalog/brand/<id:\d+>/page/<page:\d+>' => 'catalog/brand',
                 'catalog/brand/<id:\d+>' => 'catalog/brand',
+                'catalog/product/<id:\d+>' => 'catalog/product',
                 'catalog/search/page/<page:\d+>' => 'catalog/search',
                 'catalog/search' => 'catalog/search',
                 '<action:(index|about|contact|login|signup)>' => 'site/<action>', // убираем контроллер Site из строки регуляркой <a>
